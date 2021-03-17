@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Who's the best?</title>
+	<style>
+		body{
+			background-color: #121212;
+		}
+		.square-front {
+			transition: 0.4s ease;
+		    float:left;
+		    position: relative;
+		    width: 19.6%;
+		    padding-bottom : 19.6%;  /*= width for a 1:1 aspect ratio*/ 
+		    margin:0.2%;
+		    background-position:center center;
+		    background-repeat:no-repeat;
+		    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+		    z-index: 1;
+		    border-radius: 8px;
+		    cursor: pointer;
+		}
+		.extended{
+			float:left;
+		    position: relative;
+		    width: 21%;
+		    padding-bottom : 30%;  /*= width for a 1:1 aspect ratio*/ 
+		    margin:2%;
+		    background-position:center center;
+		    background-repeat:no-repeat;
+		    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+		    z-index: 1;
+		    border-radius: 8px;
+		}
+		.flipped{
+			transition: 0.4s ease;
+			transform: rotateY(180deg);
+			-webkit- transform: rotateY(180deg);
+			float:left;
+		    position: relative;
+		    width: 19.6%;
+		    padding-bottom : 19.6%;  /*= width for a 1:1 aspect ratio*/ 
+		    margin:0.2%;
+		    background-position:center center;
+		    background-repeat:no-repeat;
+		    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+		    z-index: 2;
+		    border-radius: 8px;
+		}
+		#flipall{
+			font-family: Calibri;
+			text-align: center;
+			color: #121212;
+			cursor: pointer;
+			font-size: 5vw;
+			margin-left: 25%;
+			margin-right: 25%;
+			background-color: white;
+			border-radius: 8px;
+		}
+		#extended-text{
+			position: relative;
+			font-family: Calibri;
+			text-align: center;
+			color: white;
+			font-size: 2vw;
+			margin-left: 25%;
+			margin-top: 110%;
+			margin-right: 25%;
+			border-radius: 8px;
+		}
+		#flipall:hover{
+			background-color: #A9A9A9;
+		}
+		.square-front:hover{
+			transform: rotateY(20deg);
+		}
+		.flipped:hover{
+			transform: rotateY(200deg);
+		}
+		
+		
+		#img1e{background-image:url('https://i.ibb.co/XJW5bRc/Sakshi.jpg');}
+		#img2e{background-image:url('https://i.ibb.co/z5C35L7/Devaansh.jpg');}
+		#img3e{background-image:url('https://i.ibb.co/jMgzygb/Jyoti.jpg');}
+		#img4e{background-image:url('https://i.ibb.co/cwCr03Y/Tejas.jpg');}
+		#img5e{background-image:url('https://i.ibb.co/jr1NgdB/Vidushi.jpg');}
+		#img6e{background-image:url('https://i.ibb.co/jr1NgdB/Vidushi.jpg');}
+		#img7e{background-image:url('https://i.ibb.co/jr1NgdB/Vidushi.jpg');}
+		#img8e{background-image:url('https://i.ibb.co/jr1NgdB/Vidushi.jpg');}
+
+		#img11{background-image:url('https://i.ibb.co/KyXqHxm/Devaansh.jpg');} /*Need to replace image*/
+		#img12{background-image:url('https://i.ibb.co/KyXqHxm/Devaansh.jpg');} /*Need to replace image*/
+		#img13{background-image:url('https://i.ibb.co/KyXqHxm/Devaansh.jpg');} /*Need to replace image*/
+		#img14{background-image:url('https://i.ibb.co/W0VKMQq/Gurnoor.jpg');}
+		#img15{background-image:url('https://i.ibb.co/k957kQw/Suhani.jpg');}
+		#img21{background-image:url('https://i.ibb.co/G527Vf3/Advait.jpg');}
+		#img22{background-image:url('https://i.ibb.co/G0Y1njN/Controls.jpg');}
+		#img23{background-image:url('https://i.ibb.co/YpxTMQ9/Vinayak.jpg');}
+		#img24{background-image:url('https://i.ibb.co/KXXD3p7/Yuvam.jpg');}
+		#img25{background-image:url('https://i.ibb.co/8j0d0wQ/Rachitt.jpg');}
+		#img31{background-image:url('https://i.ibb.co/TY9HrDp/Shreya.jpg');}
+		#img32{background-image:url('https://i.ibb.co/2kWMNbv/Preetika.jpg');}
+		#img33{background-image:url('https://i.ibb.co/p2wvFYM/Saksham.jpg');}
+		#img34{background-image:url('https://i.ibb.co/YZTt93C/Sanaa.jpg');}
+		#img35{background-image:url('https://i.ibb.co/KyXqHxm/Devaansh.jpg');}
+		#img41{background-image:url('https://i.ibb.co/mH5LFHM/Vidushi.jpg');}
+		#img42{background-image:url('https://i.ibb.co/YyVrrmF/Tejas.jpg');}
+		#img43{background-image:url('https://i.ibb.co/RDZdCdR/Tirth.jpg');}
+		#img44{background-image:url('https://i.ibb.co/zhMCH6S/Jyoti.jpg');}
+		#img45{background-image:url('https://i.ibb.co/x7K5gjy/Hriday.jpg');}
+		#img51{background-image:url('https://i.ibb.co/VHq9TYy/Tiwari.jpg');}
+		#img52{background-image:url('https://i.ibb.co/XsdBqs7/Sakshi.jpg');}
+		#img53{background-image:url('https://i.ibb.co/bdg52Np/Lakshita.jpg');}
+		#img54{background-image:url('https://i.ibb.co/MS8YqcH/TK.jpg');}
+		#img55{background-image:url('https://i.ibb.co/7bqcDTf/Faria.jpg');}
+
+		#img51.flipped{background-image:url('https://i.ibb.co/vjBytRM/1.jpg');}
+		#img52.flipped{background-image:url('https://i.ibb.co/2s4PYXf/2.jpg');}
+		#img53.flipped{background-image:url('https://i.ibb.co/xF0VL2w/3.jpg');}
+		#img54.flipped{background-image:url('https://i.ibb.co/CbWStpd/4.jpg');}
+		#img55.flipped{background-image:url('https://i.ibb.co/ts8yRDg/5.jpg');}
+		#img41.flipped{background-image:url('https://i.ibb.co/2Y20kZw/6.jpg');}
+		#img42.flipped{background-image:url('https://i.ibb.co/THQkks4/7.jpg');}
+		#img43.flipped{background-image:url('https://i.ibb.co/HKg59b7/8.jpg');}
+		#img44.flipped{background-image:url('https://i.ibb.co/RjD1hQQ/9.jpg');}
+		#img45.flipped{background-image:url('https://i.ibb.co/zrHLMzP/10.jpg');}
+		#img31.flipped{background-image:url('https://i.ibb.co/qJMRKsP/11.jpg');}
+		#img32.flipped{background-image:url('https://i.ibb.co/0hfFNzk/12.jpg');}
+		#img33.flipped{background-image:url('https://i.ibb.co/XpC0Th5/13.jpg');}
+		#img34.flipped{background-image:url('https://i.ibb.co/SrLqKKn/14.jpg');}
+		#img35.flipped{background-image:url('https://i.ibb.co/q0jnnVs/15.jpg');}
+		#img21.flipped{background-image:url('https://i.ibb.co/y8tKYRD/16.jpg');}
+		#img22.flipped{background-image:url('https://i.ibb.co/zsgZjkD/17.jpg');}
+		#img23.flipped{background-image:url('https://i.ibb.co/kQmKB0C/18.jpg');}
+		#img24.flipped{background-image:url('https://i.ibb.co/rygLchv/19.jpg');}
+		#img25.flipped{background-image:url('https://i.ibb.co/J5N6BRt/20.jpg');}
+		#img11.flipped{background-image:url('https://i.ibb.co/jGNc7YW/21.jpg');}
+		#img12.flipped{background-image:url('https://i.ibb.co/SJS6Dpf/22.jpg');}
+		#img13.flipped{background-image:url('https://i.ibb.co/w6gdn5B/23.jpg');}
+		#img14.flipped{background-image:url('https://i.ibb.co/j4pkps1/24.jpg');}
+		#img15.flipped{background-image:url('https://i.ibb.co/4pRsZcy/25.jpg');}
+		
+		
+	</style>
+</head>
+<body>
+	<p id = "flipall">People Who Love You</p>
+	<script>
+		var x = 0;
+		document.getElementById('flipall').addEventListener("click", () => {
+			cards = document.getElementsByClassName('square-front');
+			if(x == 0){
+				for(var i = 0; i < cards.length; i++)
+				{
+					cards[i].classList.add('flipped')
+				}
+				document.getElementById('flipall').innerHTML = "Kavs"
+				x = 1;
+			}
+			else{
+				for(var i = 0; i < cards.length; i++)
+				{
+					cards[i].classList.remove('flipped')
+				}
+				document.getElementById('flipall').innerHTML = "People Who Love You"
+				x = 0;
+			}
+			
+		})
+	</script>
+	<!-- 1st row verticaly centered text in the square columns -->
+
+		<div id="img11" class="square-front" onclick="document.getElementById('img11').classList.toggle('flipped')">
+		</div>
+
+		<div id="img12" class="square-front" onclick="document.getElementById('img12').classList.toggle('flipped')">
+		</div>
+
+		<div id="img13" class="square-front" onclick="document.getElementById('img13').classList.toggle('flipped')">
+		</div>
+
+		<div id="img14" class="square-front" onclick="document.getElementById('img14').classList.toggle('flipped')">
+		</div>
+
+		<div id="img15" class="square-front" onclick="document.getElementById('img15').classList.toggle('flipped')">
+		</div>
+
+
+	<!-- 2nd row verticaly centered images in square columns -->
+
+		<div id="img21" class="square-front" onclick="document.getElementById('img21').classList.toggle('flipped')">
+		</div>
+
+		<div id="img22" class="square-front" onclick="document.getElementById('img22').classList.toggle('flipped')">
+		</div>
+
+		<div id="img23" class="square-front" onclick="document.getElementById('img23').classList.toggle('flipped')">
+		</div>
+
+		<div id="img24" class="square-front" onclick="document.getElementById('img24').classList.toggle('flipped')">
+		</div>
+
+		<div id="img25" class="square-front" onclick="document.getElementById('img25').classList.toggle('flipped')">
+		</div>
+
+
+	<!-- 3rd row responsive images in background with centered content -->
+
+		<div id="img31" class="square-front" onclick="document.getElementById('img31').classList.toggle('flipped')">
+		</div>
+
+		<div id="img32" class="square-front" onclick="document.getElementById('img32').classList.toggle('flipped')">
+		</div>
+
+		<div id="img33" class="square-front" onclick="document.getElementById('img33').classList.toggle('flipped')">
+		</div>
+
+		<div id="img34" class="square-front" onclick="document.getElementById('img34').classList.toggle('flipped')">
+		</div>
+
+		<div id="img35" class="square-front" onclick="document.getElementById('img35').classList.toggle('flipped')">
+		</div>
+
+
+	<!-- 4th row responsive images in background with centered content -->
+
+		<div id="img41" class="square-front" onclick="document.getElementById('img41').classList.toggle('flipped')">
+		</div>
+
+		<div id="img42" class="square-front" onclick="document.getElementById('img42').classList.toggle('flipped')">
+		</div>
+
+		<div id="img43" class="square-front" onclick="document.getElementById('img43').classList.toggle('flipped')">
+		</div>
+
+		<div id="img44" class="square-front" onclick="document.getElementById('img44').classList.toggle('flipped')">
+		</div>
+
+		<div id="img45" class="square-front" onclick="document.getElementById('img45').classList.toggle('flipped')">
+		</div>
+
+
+	<!-- 5th row responsive images in background with centered content -->
+
+		<div id="img51" class="square-front" onclick="document.getElementById('img51').classList.toggle('flipped')">
+		</div>
+
+		<div id="img52" class="square-front" onclick="document.getElementById('img52').classList.toggle('flipped')">
+		</div>
+
+		<div id="img53" class="square-front" onclick="document.getElementById('img53').classList.toggle('flipped')">
+		</div>
+
+		<div id="img54" class="square-front" onclick="document.getElementById('img54').classList.toggle('flipped')">
+		</div>
+
+		<div id="img55" class="square-front" onclick="document.getElementById('img55').classList.toggle('flipped')">
+		</div>
+
+		<p id = "extended-text">For some of us, the cards were too small! :-)</p>
+		<div id="img1e" class="extended"></div>
+		<div id="img2e" class="extended"></div>
+		<div id="img3e" class="extended"></div>
+		<div id="img4e" class="extended"></div>
+		<div id="img5e" class="extended"></div>
+		<div id="img6e" class="extended"></div>
+		<div id="img7e" class="extended"></div>
+		<div id="img8e" class="extended"></div>
+
+		
+</body>
+</html>
